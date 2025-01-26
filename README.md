@@ -55,21 +55,8 @@ An engaging platform offering personalized movie recommendations through a swipe
    cd frontend
    npm run dev
    ```
-
-5. **Access the App**:
-   Open [http://localhost:3000](http://localhost:3000) in your browser.
-
 ---
 
-## 🔧 Configuration Details
-
-### Backend:
-- Add movie data to `backend/data/movies.json` or configure it to fetch from an external API (e.g., TMDB).
-
-### Frontend:
-- Update the API endpoint in `frontend/src/api.js` for deployment or remote hosting.
-
----
 
 ## 🤝 Contribution Guidelines
 
@@ -79,12 +66,6 @@ Contributions are welcome! Here’s how you can contribute:
 2. Create a new feature branch.
 3. Implement and test your changes.
 4. Submit a pull request for review.
-
----
-
-## 📝 License
-
-This project is licensed under the **MIT License**.
 
 ---
 
