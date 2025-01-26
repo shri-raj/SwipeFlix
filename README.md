@@ -71,12 +71,6 @@ An engaging platform offering personalized movie recommendations through a swipe
 
 ---
 
-## 🖼 Application Preview
-
-![App Preview](https://via.placeholder.com/800x400?text=Add+your+own+preview+image)
-
----
-
 ## 🤝 Contribution Guidelines
 
 Contributions are welcome! Here’s how you can contribute:
