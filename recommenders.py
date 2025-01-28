@@ -5,7 +5,6 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 
 class MovieRecommender:
     def __init__(self, ratings_path, movies_path):
-        # Load data
         self.ratings = pd.read_csv(ratings_path, sep='\t', names=['user_id', 'item_id', 'rating', 'timestamp'])
         self.movies = pd.read_csv(movies_path, sep='|', encoding='latin-1',
                      names=['item_id', 'title', 'release_date', 'video_release_date', 'IMDb_URL',
