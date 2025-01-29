@@ -28,21 +28,35 @@ def get_recommendations():
     last_swiped_movie = request.args.get('last_swiped_movie')
     
     try:
+        # Get 10 recommendations excluding already swiped movies
         recommendations = recommender.swipe_style_recommend(
             user_id=user_id, 
             last_swiped_movie=last_swiped_movie
-        )
+        ).sample(10)  # Add random sampling if algorithm returns same results
+        
         return jsonify({
-            "recommendations": recommendations
+            "recommendations": recommendations[['title', 'release_date', 'genres']].to_dict(orient='records')
         }), 200
     except Exception as e:
-        return jsonify({"error": str(e)}), 400
-
+        # Fallback to popular movies
+        popular = recommender.movies.sort_values('rating', ascending=False).head(10)
+        return jsonify({
+            "recommendations": popular[['title', 'release_date', 'genres']].to_dict(orient='records')
+        }), 200
+    
 @app.route('/movies', methods=['GET'])
 def get_movies():
-    movies = recommender.movies[['title', 'release_date', 'genres']].to_dict(orient='records')
-
-    return jsonify({"movies": movies}), 200
+    page = request.args.get('page', 1, type=int)
+    per_page = 20
+    
+    # Get random movies for initial batch
+    random_movies = recommender.movies.sample(min(per_page, len(recommender.movies)))
+    
+    return jsonify({
+        "movies": random_movies[['title', 'release_date', 'genres']].to_dict(orient='records'),
+        "page": page,
+        "total_pages": len(recommender.movies) // per_page
+    }), 200
 
 if __name__ == '__main__':
     app.run(debug=True)
