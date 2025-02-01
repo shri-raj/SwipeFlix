@@ -36,12 +36,12 @@ An engaging platform offering personalized movie recommendations through a swipe
 1. **Clone the Repository**:
    ```bash
    git clone https://github.com/shri-raj/SwipeFlix.git
-   cd movie-tinder
+   cd SwipeFlix
    ```
 
 2. **Install Dependencies**:
    ```bash
-   cd frontend
+   cd swipe-flix
    npm install
    ```
 
@@ -52,7 +52,7 @@ An engaging platform offering personalized movie recommendations through a swipe
 
 4. **Start the Frontend Application**:
    ```bash
-   cd frontend
+   cd swipeflix
    npm run dev
    ```
 ---
